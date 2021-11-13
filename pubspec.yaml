@@ -74,9 +74,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   #   - family: Trajan Pro
   fonts:
-    - family: Charmonman
+    - family: Montserrat
       fonts:
-        - asset: fontes/Charmonman-Bold.ttf
+        - asset: fontes/Montserrat-Regular.ttf
     - family: Source Sans Pro
       fonts:
         - asset: fontes/SourceSansPro-Regular.ttf
