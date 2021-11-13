@@ -7,32 +7,44 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: true,
       home: Scaffold(
-        backgroundColor: AppColors.background,
-        body: SafeArea(
+        //    backgroundColor: AppColors.background,
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('images/fundo3.jpg'), fit: BoxFit.cover)),
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(AppImages.perfil),
-                  radius: 65.0,
+                //  CircleAvatar(
+                //   backgroundImage: AssetImage(AppImages.perfil),
+                //    radius: 65.0,
+                //  ),
+                Text(
+                  'My name is',
+                  style: TextStyle(fontSize: 20,
+                  fontFamily: 'Montserrat'),
                 ),
                 Text(
                   'HenriqueJRodrigues',
                   style: TextStyle(
-                    fontFamily: 'Charmonman',
+                    fontFamily: 'Montserrat',
                     color: AppColors.textos,
-                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35,
                   ),
+                ),
+                SizedBox(
+                  height: 5,
                 ),
                 Text(
                   'FLUTTER DEVELOPER',
                   style: TextStyle(
                       fontFamily: 'Source Sans Pro',
                       fontSize: 20,
-                      color: AppColors.cartao,
+                      color: AppColors.textos,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 2.5),
+                      letterSpacing: 3),
                 ),
                 SizedBox(
                   width: 150.0,
@@ -41,50 +53,48 @@ void main() {
                     color: AppColors.textos,
                   ),
                 ),
-                Container(
-                  margin:
-                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
-                  padding: EdgeInsets.all(10.0),
-                  color: Colors.white,
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.phone,
-                        size: 25,
-                        color: AppColors.textos,
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 45,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('images/gmail.png'),
+                            fit: BoxFit.cover),
                       ),
-                      Text(
-                        ' +55 11 12345-6789',
-                        style: TextStyle(
-                            color: AppColors.textos,
-                            fontSize: 20,
-                            fontFamily: 'Source Sans Pro'),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  margin:
-                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
-                  padding: EdgeInsets.all(10.0),
-                  color: Colors.white,
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.email,
-                        size: 25,
-                        color: AppColors.textos,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('images/LinkedIn.png'),
+                            fit: BoxFit.cover),
                       ),
-                      Text(
-                        ' hrjsuporte@gmail.com',
-                        style: TextStyle(
-                            color: AppColors.textos,
-                            fontSize: 20,
-                            fontFamily: 'Source Sans Pro'),
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 45,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('images/githubt.png'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ],
                 ),
+                SizedBox(
+                  height: 60,
+                )
               ],
             ),
           ),
