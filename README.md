@@ -1,5 +1,5 @@
 <h2 align="center">
-  :weight_lifting: Desafio01_eu_sou_programador :heavy_check_mark: 
+  :weight_lifting: Curso_polimorfismo_desafio_2 :heavy_check_mark: 
 </h2>
 
 <p align="center">
