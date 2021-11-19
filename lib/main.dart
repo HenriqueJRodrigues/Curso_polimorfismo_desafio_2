@@ -1,11 +1,11 @@
 import 'package:desafio02/paleta_colors.dart';
-import 'package:desafio02/paleta_images.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         //    backgroundColor: AppColors.background,
         body: Container(
@@ -22,8 +22,7 @@ void main() {
                 //  ),
                 Text(
                   'My name is',
-                  style: TextStyle(fontSize: 20,
-                  fontFamily: 'Montserrat'),
+                  style: TextStyle(fontSize: 20, fontFamily: 'Montserrat'),
                 ),
                 Text(
                   'HenriqueJRodrigues',
@@ -57,44 +56,55 @@ void main() {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 45,
-                      height: 45,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('images/gmail.png'),
-                            fit: BoxFit.cover),
+                    InkWell(
+                      onTap: (){abrirGmail();},
+                      child: Container(
+                        width: 45,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('images/gmail.png'),
+                              fit: BoxFit.cover),
+                        ),
                       ),
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('images/LinkedIn.png'),
-                            fit: BoxFit.cover),
+                    InkWell(
+                      onTap: (){
+                        abrirUrl1(); 
+                      },
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('images/LinkedIn.png'),
+                              fit: BoxFit.cover),
+                        ),
                       ),
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Container(
-                      width: 45,
-                      height: 45,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('images/githubt.png'),
-                            fit: BoxFit.cover),
+                    InkWell(
+                      onTap: () {abrirUrl();},
+                      child: Container(
+                        width: 45,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('images/githubt.png'),
+                              fit: BoxFit.cover),
+                        ),
                       ),
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 60,
-                )
+                ),
               ],
             ),
           ),
@@ -102,4 +112,48 @@ void main() {
       ),
     ),
   );
+}
+
+/*
+abrirWhatsApp() async {
+  var whatsappUrl = "whatsapp://send?phone=+55&text=Olá,tudo bem ('Teste')?";
+
+  if (await canLaunch(whatsappUrl)) {
+    await launch(whatsappUrl);
+  } else {
+    throw 'Could not launch $whatsappUrl';
+  }
+}
+*/
+
+abrirGmail() async {
+  final Uri params = Uri(
+    scheme: 'mailto',
+    path: 'hrjsuporte@gmail.com',
+    query: 'subject=Reportar&body=Detalhe aqui qual a vaga: ',
+  );
+  String url = params.toString();
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    print('Could not launch $url');
+  }
+}
+
+abrirUrl() async {
+  const url = 'https://github.com/HenriqueJRodrigues';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+abrirUrl1() async {
+  const url = 'https://www.linkedin.com/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }
